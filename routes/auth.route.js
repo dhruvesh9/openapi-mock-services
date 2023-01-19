@@ -13,20 +13,22 @@ router.post("/", async (req, res) => {
 
     // Get to user from the database, if the user is not there return error
     let user = users.find(u => u.username === req.body.username);
-    if (!user){
+    if (!user) {
         res.status(400).send({
-            ok:false,
-            message:'no credentials passed'
+            ok: false,
+            message: 'no credentials passed'
         })
     }
 
     // Compare the password with the password in the database
-    const valid = await bcrypt.compare(req.body.password, user.password)
-    if (!valid){
-        res.status(400).send({
-            ok:false,
-            message:'invalid credentials'
-        })
+    if (req.body.password != undefined) {
+        const valid = await bcrypt.compare(req.body.password, user.password)
+        if (!valid) {
+            res.status(400).send({
+                ok: false,
+                message: 'invalid credentials'
+            })
+        }
     }
 
     const token = jwt.sign({

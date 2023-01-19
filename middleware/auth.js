@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 
 module.exports = (req, res, next) => {
     const authHeader = req.header("Authorization");
+    let token = undefined;
     if (authHeader!=undefined && authHeader.startsWith("Bearer ")) {
         token = authHeader.substring(7, authHeader.length);
     }
