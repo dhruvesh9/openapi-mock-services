@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const genericRoute = require("./routes/generic.route");
-const generalErrorRoute = require('./routes/general_error.route');
 const authRoute = require('./routes/auth.route');
 
 const app = express();
@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'))
+app.use(express.static('public'));
 app.get('/', (req, res) => {
     res.sendFile('index.html', { root: path.join(__dirname, 'public') });
 })
