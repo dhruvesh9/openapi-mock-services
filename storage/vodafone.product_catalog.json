@@ -1,0 +1,39 @@
+[
+    {
+        "id": "7655",
+        "href": "https://mycsp.com:8080/tmf-api/productCatalogManagement/v4/productOffering/7655",
+        "name": "Vodafone Basic Firewall for Business",
+        "description": "This product offering suggests a firewall service that can be deployed in business customer premise.",
+        "version": "2.1",
+        "validFor": {
+            "startDateTime": "2020-09-23T00:00:00Z",
+            "endDateTime": "2021-08-25T00:00:00Z"
+        },
+        "lastUpdate": "2020-09-27T00:00:00Z",
+        "lifecycleStatus": "Active",
+        "isBundle": false,
+        "isSellable": true,
+        "statusReason": "Released for sale",
+        "productSpecification": {
+            "id": "9881",
+            "href": "https://mycsp.com:8080/tmf-api/productCatalogManagement/v4/productSpecification/9881",
+            "version": "1.1",
+            "name": "Robotics999",
+            "@referredType": "DeviceSpecification",
+            "@type": "ProductSpecificationRef",
+            "@baseType": "",
+            "@schemaLocation": "https://mycsp.com:8080/tmf-api/schemas/Product/ProductSpecificationRef.schema.json"
+        },
+        "productOfferingPrice": [
+            {
+                "id": "1747",
+                "href": "https://mycsp.com:8080/tmf-api/productCatalogManagement/v4/productOfferingPrice/1747",
+                "name": "Recurring Monthly Price for Business Firewall",
+                "@referredType": "ProductOfferingPriceCharge",
+                "@type": "ProductOfferingPriceRefOrValue",
+                "@baseType": "",
+                "@schemaLocation": "https://mycsp.com:8080/tmfapi/schemas/Product/ProductOfferingPriceRefOrValue.schema.json"
+            }
+        ]
+    }
+]

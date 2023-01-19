@@ -1,0 +1,34 @@
+{
+  "name": "openapi-mock-services",
+  "version": "1.0.0",
+  "description": "A dummy mock service based on TMF openapi specifications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhruvesh9/openapi-mock-services.git"
+  },
+  "keywords": [
+    "TMF",
+    "TMForum",
+    "product",
+    "catalog",
+    "shopping",
+    "cart"
+  ],
+  "author": "Dhruvesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhruvesh9/openapi-mock-services/issues"
+  },
+  "homepage": "https://github.com/dhruvesh9/openapi-mock-services#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.4",
+    "bcrypt": "^5.0.1",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
