@@ -13,13 +13,18 @@ app.use((req, res, next) => {
     next();
 });
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(express.static('public'))
+app.get('/', (req, res) => {
+    res.sendFile('index.html', { root: path.join(__dirname, 'public') });
+})
 app.use('/mock', genericRoute);
 app.use("/mock/auth", authRoute);
-app.use('/', generalErrorRoute);
 
 app.listen(process.env.PORT || 5000, function () {
     console.log("node server running on port 5000");
 });
+
+module.exports = app
