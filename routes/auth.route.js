@@ -38,7 +38,7 @@ router.post("/", async (req, res) => {
 
     res.send({
         ok: true,
-        token: token
+        access_token: token
     });
 });
 
