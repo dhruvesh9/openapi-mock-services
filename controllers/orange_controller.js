@@ -60,7 +60,7 @@ exports.shopping_cart_list = function (req, res) {
     console.log('--------------------------------------------');
 
 
-    res.send(Response.createResponse(null, Storage.readDataFromStorage('orange', 'product_catalog')));
+    res.send(Response.createResponse(null, Storage.readDataFromStorage('orange', 'shopping_cart')));
 
 };
 
@@ -75,7 +75,7 @@ exports.shopping_cart_by_id = function (req, res) {
 
     let shoppingCarts = readDataFromStorage('orange', 'shopping_cart');
     for (let i = 0; i < shoppingCarts.length; i++) {
-        if (products[i] != undefined && shoppingCarts[i].id == id) {
+        if (shoppingCarts[i] != undefined && shoppingCarts[i].id == id) {
             requiredCart = shoppingCarts[i];
             break;
         }

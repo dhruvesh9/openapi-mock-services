@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 readDataFromStorage = function (isp, service) {
-
+    console.log('reading data from storage :')
+    console.log('isp : ',isp)
+    console.log('service : ',service)
     if (isp == 'vodafone') {
         if (service == 'product_catalog') {
             rawdata = fs.readFileSync(path.join(__dirname, '../storage/vodafone.product_catalog.json'));

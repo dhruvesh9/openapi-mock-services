@@ -58,7 +58,7 @@ exports.shopping_cart_list = function (req, res) {
     console.log('GET all vodafone shopping carts')
     console.log('--------------------------------------------');
 
-    res.send(Response.createResponse(null, Storage.readDataFromStorage('vodafone', 'product_catalog')));
+    res.send(Response.createResponse(null, Storage.readDataFromStorage('vodafone', 'shopping_cart')));
 
 };
 
@@ -73,7 +73,7 @@ exports.shopping_cart_by_id = function (req, res) {
 
     let shoppingCarts = readDataFromStorage('vodafone', 'shopping_cart');
     for (let i = 0; i < shoppingCarts.length; i++) {
-        if (products[i] != undefined && shoppingCarts[i].id == id) {
+        if (shoppingCarts[i] != undefined && shoppingCarts[i].id == id) {
             requiredCart = shoppingCarts[i];
             break;
         }
