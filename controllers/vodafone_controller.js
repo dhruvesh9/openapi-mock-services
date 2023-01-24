@@ -36,20 +36,20 @@ exports.create_shopping_cart = function (req, res) {
     console.log('++++++++++++++++++++++++++++++++++++++++++++');
     console.log('POST vodafone shopping cart')
     console.log(req.body);
-
-    if (req.body != undefined) {
+    console.log(req.body == {})
+    if (req.body && Object.keys(req.body).length !== 0) {
         let shoppingCarts = readDataFromStorage('vodafone', 'shopping_cart');
 
         let newCart = req.body;
 
         shoppingCarts.push(newCart);
-
+        console.log('all shopping carts to be written in storage : ',shoppingCarts)
         writeDataIntoStorage(shoppingCarts, 'vodafone', 'shopping_cart');
         console.log('--------------------------------------------');
         res.send(Response.createResponse(null, newCart));
     } else {
         console.log('--------------------------------------------');
-        res.send(Response.createResponse(null, "NOT POSTED, request body empty"));
+        res.status(400).send(Response.createResponse("NOT POSTED, request body empty", null));
     }
 }
 
@@ -58,14 +58,8 @@ exports.shopping_cart_list = function (req, res) {
     console.log('GET all vodafone shopping carts')
     console.log('--------------------------------------------');
 
-    if (req.headers['x-isp-identifier'] == 'vodafone') {
-        res.send(Response.createResponse(null, Storage.readDataFromStorage('vodafone', 'product_catalog')));
-    } else {
-        let error = {
-            'message': 'invalid request, please pass the correct value for header : x-isp-identifier'
-        };
-        res.send(Response.createResponse(error, null));
-    }
+    res.send(Response.createResponse(null, Storage.readDataFromStorage('vodafone', 'product_catalog')));
+
 };
 
 exports.shopping_cart_by_id = function (req, res) {

@@ -38,7 +38,7 @@ exports.create_shopping_cart = function (req, res) {
     console.log('POST orange shopping cart')
     console.log(req.body);
 
-    if (req.body != undefined) {
+    if (req.body && Object.keys(req.body).length !== 0) {
         let shoppingCarts = readDataFromStorage('orange', 'shopping_cart');
 
         let newCart = req.body;
@@ -50,7 +50,7 @@ exports.create_shopping_cart = function (req, res) {
         res.send(Response.createResponse(null, newCart));
     } else {
         console.log('--------------------------------------------');
-        res.send(Response.createResponse(null, "NOT POSTED, request body empty"));
+        res.status(400).send(Response.createResponse("NOT POSTED, request body empty", null));
     }
 }
 

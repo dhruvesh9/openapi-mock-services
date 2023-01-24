@@ -17,26 +17,28 @@ readDataFromStorage = function (isp, service) {
     }
 
     let data = JSON.parse(rawdata);
-    console.log(data);
+    console.log('Read data from storage : ', data);
     return data;
 }
 
 writeDataIntoStorage = function (input_data, isp, service) {
     let data = JSON.stringify(input_data);
-    if (isp == 'vodafone') {
-        if (service == 'product_catalog') {
-            fs.writeFileSync(path.join(__dirname, '../storage/vodafone.product_catalog.json', data));
-        } else if (service == 'shopping_cart') {
-            fs.writeFileSync(path.join(__dirname, '../storage/vodafone.shopping_cart.json', data));
-        }
-    } else if (isp == 'orange') {
-        if (service == 'product_catalog') {
-            fs.writeFileSync(path.join(__dirname, '../storage/orange.product_catalog.json', data));
-        } else if (service == 'shopping_cart') {
-            fs.writeFileSync(path.join(__dirname, '../storage/orange.shopping_cart.json', data));
+    console.log('Storage write ', data)
+    if (data != undefined) {
+        if (isp == 'vodafone') {
+            if (service == 'product_catalog') {
+                fs.writeFileSync(path.join(__dirname, '../storage/vodafone.product_catalog.json'), data);
+            } else if (service == 'shopping_cart') {
+                fs.writeFileSync(path.join(__dirname, '../storage/vodafone.shopping_cart.json'), data);
+            }
+        } else if (isp == 'orange') {
+            if (service == 'product_catalog') {
+                fs.writeFileSync(path.join(__dirname, '../storage/orange.product_catalog.json'), data);
+            } else if (service == 'shopping_cart') {
+                fs.writeFileSync(path.join(__dirname, '../storage/orange.shopping_cart.json'), data);
+            }
         }
     }
-
 }
 
 

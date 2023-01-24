@@ -4,7 +4,7 @@ function createResponse(error, dbResult) {
         result = dbResult
     } else {
         result['status'] = 'fail';
-        result['data'] = error;
+        result['message'] = error;
         result['code'] = 1;
     }
 

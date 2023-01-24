@@ -13,8 +13,8 @@ router.get('/orange/productOffering', [auth, admin], orangeController.product_li
 router.get('/vodafone/productOffering/:id', [auth, admin], vodafoneController.product_by_id);
 router.get('/orange/productOffering/:id', [auth, admin], orangeController.product_by_id);
 
-router.get('vodafone/shoppingCart', [auth, admin], vodafoneController.shopping_cart_list);
-router.get('orange/shoppingCart', [auth, admin], orangeController.shopping_cart_list);
+router.get('/vodafone/shoppingCart', [auth, admin], vodafoneController.shopping_cart_list);
+router.get('/orange/shoppingCart', [auth, admin], orangeController.shopping_cart_list);
 
 router.get('/vodafone/shoppingCart/:id', [auth, admin], vodafoneController.shopping_cart_by_id);
 router.get('/orange/shoppingCart/:id', [auth, admin], orangeController.shopping_cart_by_id);
