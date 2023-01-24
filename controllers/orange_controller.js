@@ -6,8 +6,20 @@ exports.product_list = function (req, res) {
     console.log('GET all orange products')
     console.log('--------------------------------------------');
 
+    let id = req.query.id;
+    let products = Storage.readDataFromStorage('orange', 'product_catalog');
+    let responseData = products;
+    if (id != undefined && id != "") {
+        for (let i = 0; i < products.length; i++) {
+            if (products[i] != undefined && products[i].id == id) {
+                responseData = products[i];
+                break;
+            }
+        }
+    }
 
-    res.send(Response.createResponse(null, Storage.readDataFromStorage('orange', 'product_catalog')));
+
+    res.send(Response.createResponse(null, responseData));
 
 };
 
@@ -59,8 +71,20 @@ exports.shopping_cart_list = function (req, res) {
     console.log('GET all orange shopping carts')
     console.log('--------------------------------------------');
 
+    let id = req.query.id;
+    let carts = Storage.readDataFromStorage('orange', 'shopping_cart')
+    let responseData = carts;
+    if (id != undefined && id != "") {
+        for (let i = 0; i < carts.length; i++) {
+            if (carts[i] != undefined && carts[i].id == id) {
+                responseData = carts[i];
+                break;
+            }
+        }
+    }
 
-    res.send(Response.createResponse(null, Storage.readDataFromStorage('orange', 'shopping_cart')));
+
+    res.send(Response.createResponse(null, responseData));
 
 };
 

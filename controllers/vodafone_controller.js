@@ -5,8 +5,20 @@ exports.product_list = function (req, res) {
     console.log('++++++++++++++++++++++++++++++++++++++++++++');
     console.log('GET all vodafone products')
     console.log('--------------------------------------------');
+    let id = req.query.id;
+    let products = Storage.readDataFromStorage('vodafone', 'product_catalog');
+    let responseData = products;
+    if (id != undefined && id != "") {
+        for (let i = 0; i < products.length; i++) {
+            if (products[i] != undefined && products[i].id == id) {
+                responseData = products[i];
+                break;
+            }
+        }
+    }
 
-    res.send(Response.createResponse(null, Storage.readDataFromStorage('vodafone', 'product_catalog')));
+
+    res.send(Response.createResponse(null, responseData));
 
 };
 
@@ -43,7 +55,7 @@ exports.create_shopping_cart = function (req, res) {
         let newCart = req.body;
 
         shoppingCarts.push(newCart);
-        console.log('all shopping carts to be written in storage : ',shoppingCarts)
+        console.log('all shopping carts to be written in storage : ', shoppingCarts)
         writeDataIntoStorage(shoppingCarts, 'vodafone', 'shopping_cart');
         console.log('--------------------------------------------');
         res.send(Response.createResponse(null, newCart));
@@ -57,8 +69,20 @@ exports.shopping_cart_list = function (req, res) {
     console.log('++++++++++++++++++++++++++++++++++++++++++++');
     console.log('GET all vodafone shopping carts')
     console.log('--------------------------------------------');
+    let id = req.query.id;
+    let carts = Storage.readDataFromStorage('vodafone', 'shopping_cart')
+    let responseData = carts;
+    if (id != undefined && id != "") {
+        for (let i = 0; i < carts.length; i++) {
+            if (carts[i] != undefined && carts[i].id == id) {
+                responseData = carts[i];
+                break;
+            }
+        }
+    }
 
-    res.send(Response.createResponse(null, Storage.readDataFromStorage('vodafone', 'shopping_cart')));
+
+    res.send(Response.createResponse(null, responseData));
 
 };
 
