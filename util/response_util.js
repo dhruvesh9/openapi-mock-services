@@ -1,7 +1,7 @@
 function createResponse(error, dbResult) {
     var result = {};
     if (error == null || error == undefined) {
-        result['data'] = dbResult;
+        result = dbResult
     } else {
         result['status'] = 'fail';
         result['data'] = error;
